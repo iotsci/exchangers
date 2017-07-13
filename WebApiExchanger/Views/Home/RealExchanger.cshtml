@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "";
+}
+
+<div class="well col-md-8 col-md-offset-2">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" readonly ng-model="leftOne" value="{{leftOne}}">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" readonly value="{{rightOne}}">
+                </div>
+            </div>
+            <div class="row" style="padding-top:10px;">
+                <div class="col-md-4">
+                    <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                        <label class="btn btn-default btn-xs radio-label" ng-repeat="option in options" ng-click="leftRadioClick(option)">
+                            <input type="radio" name="{{option.name}}" id="{{option.id}}"> {{option.value}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                        <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                            <label class="btn btn-default btn-xs radio-label" ng-repeat="option in options" ng-click="rightRadioClick(option)">
+                                <input type="radio" name="{{option.name}}" id="{{option.id}}"> {{option.value}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-8">&nbsp;</div>
+    </div>
+</div>

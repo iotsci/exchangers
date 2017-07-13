@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "";
+}
+
+<div ng-controller="switchController">
+    <div ng-switch on="regLoginForm">
+        <div ng-switch-when="login" ng-controller="loginController">
+            <div class="login-form col-md-4 col-md-offset-4 well">
+                <form>
+                    <div class="form-group">
+                        <label for="inputEmail">Email address</label>
+                        <input type="email" class="form-control" ng-model="login.email" id="inputEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" ng-model="login.password" id="inputPassword">
+                    </div>
+                    <button type="button" class="btn btn-block btn-primary login-button" ng-click="loginAction()">Sign in</button>
+                    <button type="button" class="btn btn-block btn-success" ng-click="toggleRegisterLogin()">Register</button>
+                </form>
+            </div>
+        </div>
+        <div ng-switch-when="register" ng-controller="registerController">
+            <div class="login-form col-md-4 col-md-offset-4 well">
+                <form>
+                    <div class="form-group">
+                        <label for="inputEmail">Email address</label>
+                        <input type="email" class="form-control" required ng-model="registerUser.email" id="inputEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" required ng-model="registerUser.password" id="inputPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPasswordConfirm">Confirm password</label>
+                        <input type="password" class="form-control" required ng-model="registerUser.confirmPassword" id="inputPasswordConfirm">
+                    </div>
+                    <button type="button" class="btn btn-block btn-primary register-button" ng-click="registerAction()">Register</button>
+                    <button type="button" class="btn btn-block btn-default" ng-click="toggleRegisterLogin()">Back</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

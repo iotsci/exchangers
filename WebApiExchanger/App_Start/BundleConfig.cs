@@ -23,6 +23,23 @@ namespace WebApiExchanger
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                    "~/Scripts/angular.min.js",
+                    "~/Scripts/angular-route.min.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/script").Include(
+                    "~/Scripts/script.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/script/controllers").Include(
+                    "~/Scripts/Controllers/*.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/script/service").Include(
+                    "~/Scripts/Service/*.js"
+                ));
         }
     }
 }

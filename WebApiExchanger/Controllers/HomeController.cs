@@ -10,8 +10,27 @@ namespace WebApiExchanger.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Exchanger";
 
+            return View("Common");
+        }
+
+        public ActionResult RegisterOrLogin()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Exchanger()
+        {
+            // При переходе по полному адресу или обновлении страницы, нужно вернуть основную страницу 
+            // Дальше все сделает angular
+            return Index();
+        }
+
+        [Authorize]
+        public ActionResult RealExchanger()
+        {
             return View();
         }
     }

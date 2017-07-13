@@ -29,5 +29,7 @@ namespace WebApiExchanger.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<WebApiExchanger.Models.Exchanger> Exchangers { get; set; }
     }
 }
