@@ -28,7 +28,6 @@ namespace WebApiExchanger.Controllers
         public async Task<IHttpActionResult> GetExchanger(int id)
         {
             Exchanger exchanger = await db.Exchangers.FindAsync(id);
-            db.Exchangers.
             if (exchanger == null)
             {
                 return NotFound();
