@@ -31,5 +31,7 @@ namespace WebApiExchanger.Models
         }
 
         public System.Data.Entity.DbSet<WebApiExchanger.Models.Exchanger> Exchangers { get; set; }
+
+        public System.Data.Entity.DbSet<WebApiExchanger.Models.Currency> Currencies { get; set; }
     }
 }
