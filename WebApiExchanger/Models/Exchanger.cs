@@ -14,9 +14,5 @@ namespace WebApiExchanger.Models
         public Currency CurrencyFrom { get; set; }
 
         public Currency CurrencyTo { get; set; }
-
-        //public int CurrencyId { get; set; }
-
-        //public Currency Currency { get; set; }
     }
 }
