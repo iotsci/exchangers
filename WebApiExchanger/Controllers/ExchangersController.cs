@@ -16,7 +16,7 @@ namespace WebApiExchanger.Controllers
         [ResponseType(typeof(ExchangerDataObject))]
         public IQueryable<ExchangerDataObject> GetExchangers(int from, int to)
         {
-            IQueryable<ExchangerDataObject> obj = db.Exchangers
+            IQueryable<ExchangerDataObject> exchangerDataObjects = db.Exchangers
                 .Where(c => c.CurrencyFrom.Id == from && c.CurrencyTo.Id == to)
                 .Select(c => new ExchangerDataObject {
                     CurrencyFromName = c.CurrencyFrom.Name,
@@ -25,7 +25,7 @@ namespace WebApiExchanger.Controllers
                 })
                 .AsQueryable();
 
-            return obj;
+            return exchangerDataObjects;
         }
         
         protected override void Dispose(bool disposing)
@@ -37,9 +37,5 @@ namespace WebApiExchanger.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ExchangerExists(int id)
-        {
-            return db.Exchangers.Count(e => e.Id == id) > 0;
-        }
     }
 }
