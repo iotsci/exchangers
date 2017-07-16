@@ -8,11 +8,11 @@ function passwordVerify() {
         require: '?ngModel',
         link: function (scope, elem, attrs, ngModel) {
             if (!ngModel) return;
-            
+
             scope.$watch(attrs.ngModel, function () {
                 validate();
             });
-            
+
             attrs.$observe('passwordVerify', function (val) {
                 validate();
             });
@@ -24,5 +24,5 @@ function passwordVerify() {
                 ngModel.$setValidity('passwordVerify', val1 === val2);
             };
         }
-    }
+    };
 }
