@@ -26,4 +26,8 @@ mainApp.service('splitParams', function () {
             to: params[1]
         }
     };
+
+    this.getExchangerId = function (dirtyId) {
+        return dirtyId.split('-')[1];
+    };
 });

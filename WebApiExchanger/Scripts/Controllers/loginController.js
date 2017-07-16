@@ -6,11 +6,12 @@ mainApp.controller('loginController', [
     '$document',
     '$httpParamSerializerJQLike',
     'locationSetter',
-    function ($scope, $http, $document, $httpParamSerializerJQLike, locationSetter) {
+    'httpApiRequest',
+    function ($scope, $http, $document, $httpParamSerializerJQLike, locationSetter, httpApiRequest) {
 
         $scope.login = {};
 
-        if (sessionStorage.getItem('AccessToken')) {
+        if (httpApiRequest.isAuthorized()) {
 
             locationSetter.setExchangerLocation();
 
@@ -23,19 +24,8 @@ mainApp.controller('loginController', [
                 .attr('disabled', true)
                 .text('Singing...');
 
-            $http({
-                method: "POST",
-                url: '/Token',
-                data: $httpParamSerializerJQLike({
-                    grant_type: 'password',
-                    username: $scope.login.email,
-                    password: $scope.login.password
-                }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            }).then(function (response) {
-                sessionStorage.setItem('AccessToken', response.data.access_token);
+            httpApiRequest.Authorize($scope.login.email, $scope.login.password, function (token) {
+                sessionStorage.setItem('AccessToken', token);
                 $document
                     .find('.login-button')
                     .attr('disabled', false)

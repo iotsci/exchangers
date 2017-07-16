@@ -5,7 +5,8 @@ mainApp.controller('exchangerController', [
     '$routeParams',
     'locationSetter',
     'splitParams',
-    function ($scope, $routeParams, locationSetter, splitParams) {
+    'httpApiRequest',
+    function ($scope, $routeParams, locationSetter, splitParams, httpApiRequest) {
         var data = $routeParams['data'];
 
         if (data) {
@@ -16,26 +17,15 @@ mainApp.controller('exchangerController', [
                 $scope.leftOne = params.from;
                 $scope.rightOne = params.to;
 
+                httpApiRequest.getExchangers(
+                    splitParams.getExchangerId(params.from),
+                    splitParams.getExchangerId(params.to),
+                    $scope.exchangers = []
+                );
             }
         }
-
-        $scope.options = [
-            {
-                name: 'options',
-                id: 'option1',
-                value: 'Option 1'
-            },
-            {
-                name: 'options',
-                id: 'option2',
-                value: 'Option 2'
-            },
-            {
-                name: 'options',
-                id: 'option3',
-                value: 'Option 3'
-            },
-        ];
+        
+        httpApiRequest.getCurrencies($scope.options = []);
 
         $scope.leftRadioClick = function (option) {
             $scope.leftOne = option.id;

@@ -277,6 +277,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\Service\httpApiRequest.js" />
     <Content Include="Scripts\Service\locationSetter.js" />
     <Content Include="Scripts\Service\splitParams.js" />
     <Content Include="Web.config" />
