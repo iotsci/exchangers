@@ -2,31 +2,32 @@
 
 mainApp.controller('registerController', [
     '$scope',
-    '$http',
     '$document',
     'httpApiRequest',
-    function ($scope, $http, $document, httpApiRequest) {
+    function ($scope, $document, httpApiRequest) {
         $scope.registerUser = {};
 
-        $scope.registerAction = function () {
+        $scope.registerAction = function (registerForm) {
 
-            $document
-                .find(".register-button")
-                .attr('disabled', true)
-                .text('Registering...');
-            
-            httpApiRequest.Register(
-                $scope.registerUser.email,
-                $scope.registerUser.password,
-                $scope.registerUser.confirmPassword,
-                function () {
-                    $document
-                        .find(".register-button")
-                        .attr('disabled', false)
-                        .text('Register');
-                    $scope.toggleRegisterLogin();
-                }
-            );
+            if (registerForm.$valid) {
+                $document
+                    .find(".register-button")
+                    .attr('disabled', true)
+                    .text('Registering...');
+
+                httpApiRequest.Register(
+                    $scope.registerUser.email,
+                    $scope.registerUser.password,
+                    $scope.registerUser.confirmPassword,
+                    function () {
+                        $document
+                            .find(".register-button")
+                            .attr('disabled', false)
+                            .text('Register');
+                        $scope.toggleRegisterLogin();
+                    }
+                );
+            }
         };
     }]
 );

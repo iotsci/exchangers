@@ -2,12 +2,11 @@
 
 mainApp.controller('loginController', [
     '$scope',
-    '$http',
     '$document',
     '$httpParamSerializerJQLike',
     'locationSetter',
     'httpApiRequest',
-    function ($scope, $http, $document, $httpParamSerializerJQLike, locationSetter, httpApiRequest) {
+    function ($scope, $document, $httpParamSerializerJQLike, locationSetter, httpApiRequest) {
 
         $scope.login = {};
 
